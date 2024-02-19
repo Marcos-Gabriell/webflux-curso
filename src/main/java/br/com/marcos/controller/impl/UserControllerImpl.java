@@ -56,10 +56,5 @@ public class UserControllerImpl implements UserController{
 		return null;
 	}
 
-	@Override
-	public ResponseEntity<Mono<UserResponse>> upadate(String id, UserResponse request) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
