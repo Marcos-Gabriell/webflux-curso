@@ -1,4 +1,8 @@
 package br.com.marcos.webfluxcurso.model.response;
 
-public class UserResponse {
+public record UserResponse(
+        String id,
+        String email,
+        String password
+) {
 }
