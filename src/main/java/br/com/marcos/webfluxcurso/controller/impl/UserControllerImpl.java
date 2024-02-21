@@ -4,6 +4,7 @@ import br.com.marcos.webfluxcurso.controller.UserController;
 import br.com.marcos.webfluxcurso.model.request.UserRequest;
 import br.com.marcos.webfluxcurso.model.response.UserResponse;
 import br.com.marcos.webfluxcurso.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/users")
 public class UserControllerImpl implements UserController {
 
