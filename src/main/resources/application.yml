@@ -1,4 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://admin:root@webfluccursocluster.dipyfaj.mongodb.net/?retryWrites=true&w=majority&appName=WebFlucCursoCluster
+      uri: mongodb+srv://admin:root@webfluccursocluster.dipyfaj.mongodb.net/webflux-curso?retryWrites=true&w=majority&appName=WebFlucCursoCluster
+      auto-index-creation: true
+  application:
+    name: webflux-course

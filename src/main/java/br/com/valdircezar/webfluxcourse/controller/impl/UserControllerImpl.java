@@ -1,9 +1,10 @@
-package br.com.marcos.webfluxcurso.controller.impl;
+package br.com.valdircezar.webfluxcourse.controller.impl;
 
-import br.com.marcos.webfluxcurso.controller.UserController;
-import br.com.marcos.webfluxcurso.model.request.UserRequest;
-import br.com.marcos.webfluxcurso.model.response.UserResponse;
-import br.com.marcos.webfluxcurso.service.UserService;
+import br.com.valdircezar.webfluxcourse.controller.UserController;
+import br.com.valdircezar.webfluxcourse.mapper.UserMapper;
+import br.com.valdircezar.webfluxcourse.model.request.UserRequest;
+import br.com.valdircezar.webfluxcourse.model.response.UserResponse;
+import br.com.valdircezar.webfluxcourse.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
 public class UserControllerImpl implements UserController {
 
     private final UserService service;
+    private final UserMapper mapper;
 
     @Override
     public ResponseEntity<Mono<Void>> save(final UserRequest request) {
@@ -27,21 +29,29 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public ResponseEntity<Mono<UserResponse>> findById(String id) {
-        return null;
+        return ResponseEntity.ok().body(
+                service.findById(id).map(mapper::toResponse)
+        );
     }
 
     @Override
     public ResponseEntity<Flux<UserResponse>> findAll() {
-        return null;
+        return ResponseEntity.ok().body(
+                service.findAll().map(mapper::toResponse)
+        );
     }
 
     @Override
     public ResponseEntity<Mono<UserResponse>> update(String id, UserRequest request) {
-        return null;
+        return ResponseEntity.ok().body(
+                service.update(id, request).map(mapper::toResponse)
+        );
     }
 
     @Override
     public ResponseEntity<Mono<Void>> delete(String id) {
-        return null;
+        return ResponseEntity.ok().body(
+                service.delete(id).then()
+        );
     }
 }

@@ -1,6 +1,4 @@
-package br.com.marcos.webfluxcurso.entity;
-
-
+package br.com.valdircezar.webfluxcourse.entity;
 
 import lombok.Builder;
 import lombok.Data;
